@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Héctor Terrazas Orccotoma</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1a2332;
+            --secondary: #2d3748;
+            --accent: #e53e3e;
+            --gold: #d69e2e;
+            --warm-gold: #f6ad55;
+            --text-light: #f7fafc;
+            --text-warm: #fef5e7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #4a5568 100%);
+            color: var(--text-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(214, 158, 46, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(229, 62, 62, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 1s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(214, 158, 46, 0.3);
+            border-top: 4px solid var(--gold);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: var(--text-warm);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-weight: 600;
+            text-align: center;
+            max-width: 300px;
+            line-height: 1.5;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(rgba(26, 35, 50, 0.7), rgba(45, 55, 72, 0.8));
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-background iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: brightness(0.4) blur(2px);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            z-index: 10;
+            position: relative;
+        }
+
+        .crown-icon {
+            font-size: clamp(4rem, 8vw, 6rem);
+            color: var(--gold);
+            margin-bottom: 30px;
+            animation: glow 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 30px rgba(214, 158, 46, 0.8));
+        }
+
+        @keyframes glow {
+            0% { filter: drop-shadow(0 0 20px rgba(214, 158, 46, 0.6)); }
+            100% { filter: drop-shadow(0 0 40px rgba(214, 158, 46, 1)); }
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--gold), var(--warm-gold), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            margin-bottom: 40px;
+            color: var(--text-warm);
+            font-weight: 400;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+
+        .family-message {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: 40px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+
+        .conjunto-info {
+            background: linear-gradient(45deg, var(--accent), #c53030);
+            color: var(--text-light);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            margin-bottom: 50px;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(229, 62, 62, 0.4);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white;
+            padding: clamp(15px, 4vw, 20px) clamp(25px, 6vw, 40px);
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: clamp(220px, 50vw, 300px);
+            justify-content: center;
+            border: 2px solid #25d366;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+        }
+
+        /* VIDEO SECTION - SOLUCIÓN CORRECTA */
+        .video-section {
+            padding: clamp(60px, 10vw, 100px) 20px;
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.95), rgba(45, 55, 72, 0.95));
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .video-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, var(--gold), var(--warm-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* CONTENEDOR RESPONSIVO CON ASPECT RATIO 4:3 CORRECTO */
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 75%; /* 4:3 aspect ratio para Google Drive (480/640 * 100%) */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border: 4px solid var(--gold);
+            background: #000;
+        }
+
+        .video-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* RESPONSIVE MOBILE */
+        @media screen and (max-width: 768px) {
+            .video-container {
+                margin: 0 15px;
+                border-radius: 15px;
+                /* Mantener aspect ratio 4:3 en móviles también */
+                padding-bottom: 75%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .video-container {
+                margin: 0 10px;
+                border-radius: 12px;
+                border-width: 3px;
+                /* Aspect ratio 4:3 consistente */
+                padding-bottom: 75%;
+            }
+        }
+
+        /* AUDIO CONTROLS */
+        .audio-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            background: rgba(26, 35, 50, 0.95);
+            padding: 12px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(214, 158, 46, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 90vw;
+            justify-content: center;
+        }
+
+        .audio-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            width: clamp(40px, 10vw, 50px);
+            height: clamp(40px, 10vw, 50px);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .audio-btn:hover, .audio-btn.active {
+            background: var(--gold);
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .audio-info {
+            color: var(--text-light);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .audio-wave {
+            display: flex;
+            gap: 2px;
+            align-items: end;
+            height: 14px;
+        }
+
+        .audio-wave span {
+            width: 2px;
+            background: var(--gold);
+            border-radius: 1px;
+            animation: wave 1.5s ease-in-out infinite;
+        }
+
+        .audio-wave span:nth-child(1) { animation-delay: 0s; }
+        .audio-wave span:nth-child(2) { animation-delay: 0.1s; }
+        .audio-wave span:nth-child(3) { animation-delay: 0.2s; }
+        .audio-wave span:nth-child(4) { animation-delay: 0.3s; }
+
+        @keyframes wave {
+            0%, 100% { height: 3px; }
+            50% { height: 14px; }
+        }
+
+        .footer {
+            padding: clamp(140px, 8vw, 60px) 20px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.98), rgba(45, 55, 72, 0.98));
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-message {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--text-warm);
+            margin-bottom: 20px;
+        }
+
+        .footer-heart {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--accent);
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @media (max-width: 480px) and (orientation: portrait) {
+            .audio-controls {
+                bottom: 15px;
+                left: 15px;
+                right: 15px;
+                transform: none;
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+            }
+            
+            .audio-info {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 5px;
+            }
+            
+            .audio-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10%, 90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">
+            Preparando una sorpresa especial para<br>
+            <strong>Héctor Terrazas Orccotoma</strong>
+        </div>
+    </div>
+
+    <!-- Partículas -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <iframe src="https://drive.google.com/file/d/1kh09yiVQDNHkpvm-REZFoqkxJb8yawNg/preview" 
+                    title="Foto de Héctor">
+            </iframe>
+        </div>
+        
+        <div class="hero-content">
+            <div class="crown-icon">👑</div>
+            
+            <h1 class="main-title">
+                ¡Feliz Cumpleaños<br>
+                Héctor Terrazas<br>
+                Orccotoma!
+            </h1>
+            
+            <p class="subtitle">
+                Un día especial para una persona muy especial
+            </p>
+            
+            <p class="family-message">
+                Te deseamos todos tus hermanos y familia. Te queremos mucho, pronto estaremos juntos. Que este nuevo año de vida esté lleno de bendiciones, salud y momentos inolvidables.
+            </p>
+            
+            <div class="conjunto-info">
+                🎵 Saludo del Conjunto Condemayta de Acomayo 🎵
+            </div>
+            
+            <div class="action-buttons">
+                <a href="#" class="btn-whatsapp" onclick="enviarWhatsApp(); return false;">
+                    <i class="fab fa-whatsapp"></i>
+                    Enviar Mensaje a Héctor
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <h2 class="video-title">Tu Video Especial de Cumpleaños</h2>
+        <div class="video-container">
+            <iframe class="video-iframe" 
+                    src="./Saludo_Condemayta_Hector.mp4" 
+                    title="Video de cumpleaños para Héctor Terrazas Orccotoma"
+                    allow="autoplay; encrypted-media; fullscreen"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-message">
+            Con todo nuestro amor y cariño
+        </p>
+        <div class="footer-heart">💙</div>
+    </footer>
+
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+        <div class="audio-info">
+            <div class="audio-wave" id="audioWave" style="display: none;">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <span id="audioStatus">Música</span>
+        </div>
+        <button class="audio-btn" id="playBtn" onclick="toggleMusica()">
+            <i class="fas fa-play"></i>
+        </button>
+    </div>
+
+    <!-- Audio iframe oculto -->
+    <iframe id="audioFrame" src="about:blank" style="position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;border:none;" allow="autoplay"></iframe>
+
+    <script>
+        let musicaReproduciendo = false;
+        let musicaSilenciada = false;
+        let audioFrame = document.getElementById('audioFrame');
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ocultar loading después de 2 segundos
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 2000);
+            
+            // Crear partículas
+            crearParticulas();
+        });
+
+        // Toggle música
+        function toggleMusica() {
+            if (musicaReproduciendo) {
+                audioFrame.src = 'about:blank';
+                musicaReproduciendo = false;
+            } else {
+                audioFrame.src = './Serenata-Condemayta.mp3';
+                musicaReproduciendo = true;
+            }
+            actualizarInterfaz();
+        }
+
+        // Toggle silencio
+        function toggleSilencio() {
+            musicaSilenciada = !musicaSilenciada;
+            if (musicaSilenciada) {
+                audioFrame.style.display = 'none';
+            } else {
+                audioFrame.style.display = 'block';
+                if (musicaReproduciendo) {
+                    audioFrame.src = './Serenata-Condemayta.mp3';
+                }
+            }
+            actualizarInterfaz();
+        }
+
+        // Actualizar interfaz
+        function actualizarInterfaz() {
+            const playBtn = document.getElementById('playBtn');
+            const muteBtn = document.getElementById('muteBtn');
+            const audioWave = document.getElementById('audioWave');
+            const audioStatus = document.getElementById('audioStatus');
+            
+            if (musicaReproduciendo) {
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                playBtn.classList.add('active');
+                audioWave.style.display = 'flex';
+                                                audioStatus.textContent = 'Reproduciendo';
+
+            } else {
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                playBtn.classList.remove('active');
+                audioWave.style.display = 'none';
+                                audioStatus.textContent = 'Silenciado';
+
+            }
+            
+            if (musicaSilenciada) {
+                muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                muteBtn.classList.add('active');
+                audioWave.style.opacity = '0.3';
+                audioStatus.textContent = 'Silenciado';
+            } else {
+                muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                muteBtn.classList.remove('active');
+                audioWave.style.opacity = '1';
+                audioStatus.textContent = musicaReproduciendo ? 'Reproduciendo' : 'Pausado';
+            }
+        }
+
+        // WhatsApp
+        function enviarWhatsApp() {
+            const numero = '51950811380';
+            const mensaje = 'Feliz cumpleaños Héctor Terrazas Orccotoma! Que tengas un día lleno de bendiciones y alegría. Te queremos mucho y esperamos verte pronto.';
+            
+            const esMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (esMobile) {
+                window.location.href = `whatsapp://send?phone=${numero}&text=${encodeURIComponent(mensaje)}`;
+                setTimeout(() => {
+                    window.open(`https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensaje)}`, '_blank');
+                }, 2000);
+            } else {
+                window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, '_blank');
+            }
+        }
+
+        // Crear partículas
+        function crearParticulas() {
+            const container = document.getElementById('particles');
+            
+            function agregarParticula() {
+                const particula = document.createElement('div');
+                particula.className = 'particle';
+                particula.style.left = Math.random() * 100 + '%';
+                particula.style.animationDelay = Math.random() * 20 + 's';
+                
+                container.appendChild(particula);
+                
+                setTimeout(() => {
+                    if (particula.parentNode) {
+                        particula.parentNode.removeChild(particula);
+                    }
+                }, 20000);
+            }
+            
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => agregarParticula(), i * 500);
+            }
+            
+            setInterval(agregarParticula, 5000);
+        }
+
+        // Confetti
+        setTimeout(() => {
+            const colores = ['#d69e2e', '#f6ad55', '#e53e3e', '#ffffff'];
+            
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.cssText = `
+                        position: fixed;
+                        left: ${Math.random() * 100}vw;
+                        top: -10px;
+                        width: ${Math.random() * 8 + 4}px;
+                        height: ${Math.random() * 8 + 4}px;
+                        background: ${colores[Math.floor(Math.random() * colores.length)]};
+                        z-index: 9999;
+                        border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
+                        pointer-events: none;
+                        animation: confetti ${Math.random() * 4 + 3}s linear forwards;
+                    `;
+                    
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        if (confetti.parentNode) {
+                            confetti.parentNode.removeChild(confetti);
+                        }
+                    }, 7000);
+                }, i * 100);
+            }
+        }, 3000);
+
+        // CSS para confetti
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes confetti {
+                0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(${window.innerHeight + 100}px) rotate(720deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
